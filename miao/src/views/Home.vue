@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home">    
+   首页
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
+import alert from '@/components/alertComponent/index.js'
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  created () {
+    console.log(1113);
+    alert({
+      title: '提示',
+      content: '时代峰峻回款客户开开会是',
+      confirm: '确定',
+      cancel: '取消',
+      confirmFn: function () {
+        console.log(1111)
+        this.isShow = false
+      },
+      cancelFn: function () {
+        console.log(2222)
+      }
+    })
   }
 }
 </script>
+<style lang="less" scoped>
+ .home{
+   width: 100%;
+   height: 100%;
+   background: cornsilk;
+   font-size: 16px;
+ }
+</style>
